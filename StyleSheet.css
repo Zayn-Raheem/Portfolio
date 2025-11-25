@@ -221,10 +221,10 @@ body{
 }
 
 .skills-grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 30px;
+    width: 100%; 
 }
 
 .skill-card {
