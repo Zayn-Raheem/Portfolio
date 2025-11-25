@@ -23,6 +23,20 @@ body{
     font-family: 'Montserrat', sans-serif;    
 }
 
+#Matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;           /* behind everything */
+    pointer-events: none;  /* allows clicks and scroll */
+}
+
+.hero, .About, .Projects, .Skills, .contact-section {
+    background: rgba(23, 20, 31, 0.85); /* Slightly transparent dark background */
+}
+
 .hero {
     height: 100vh;
     display: flex;
@@ -30,7 +44,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: var(--bg-darker);
+    
     color: var(--text-light);
     padding: 0 20px;
 }
@@ -79,7 +93,6 @@ body{
     height: 70px;      
     width: 100%;
     padding: 0 20px;   
-    background-color: var(--bg-darker);
     font-size: 25px;
     position: fixed;
     top: -80px;
@@ -153,7 +166,7 @@ body{
 
 .Projects {
     padding: 120px 70px;
-    background: var(--bg-darker);
+
     min-height: 100vh;
     color: var(--text-light);
 }
@@ -173,7 +186,7 @@ body{
 }
 
 .project-card {
-    background: var(--bg-card);
+
     width: 300px;
     border-radius: 12px;
     padding-bottom: 20px;
@@ -203,11 +216,9 @@ body{
     box-shadow: 0 10px 25px rgba(164, 124, 243, 0.35);
 }
 
-
 .Skills {
     height: 100vh;
     padding: 120px 70px;
-    background-color: var(--bg-dark);
     color: var(--text-light);
     
 }
@@ -228,7 +239,6 @@ body{
 }
 
 .skill-card {
-    background: var(--bg-card);
     border: 1px solid rgba(164, 124, 243, 0.3);
     padding: 25px 0;
     text-align: center;
@@ -244,14 +254,14 @@ body{
     border-color: var(--accent);
     box-shadow: 0 0 10px rgba(164, 124, 243, 0.4);
 }
-/* CONTACT SECTION */
+
+
 .contact-section {
     padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
-    background-color: var(--bg-darker);
     height: 100vh;
 }
 

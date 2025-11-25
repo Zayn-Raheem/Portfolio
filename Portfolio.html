@@ -17,10 +17,56 @@
             navbar.style.top = "-80px";
         }
     });
+
+    /* Matrix Effect */
+    window.onload = () => {
+    const canvas = document.getElementById("Matrix");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas to full window size
+    const setCanvasSize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    };
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+
+    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    const draw = () => {
+        // Semi-transparent background to create trail effect
+        ctx.fillStyle = 'rgba(19, 17, 26, 0.1)'; // subtle dark overlay
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#A47CF3'; // accent color
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    };
+
+    setInterval(draw, 50); // slower for subtle effect
+};
+
     </script>
 </head>
 
 <body>
+    <canvas id = "Matrix"></canvas>
     <div class ="hero">
         <h1> I am <span style ="color: #A47CF3">Zayn</span></h1>
         <h2>I am a full stack software developer</h2>
@@ -110,7 +156,7 @@
             </div>
 
             <button type="submit" class="contact-button">Send</button>
-        </form>
+        </form>                         
     </div>
 </div>
 
